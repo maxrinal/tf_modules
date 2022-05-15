@@ -1,6 +1,6 @@
 variable "nombre" { default = "test-vm" }
 
-variable "assigned_memory_cpu" { default = 2 }
+variable "assigned_cpu" { default = 2 }
 variable "assigned_memory_mb" { default = 2048 }
 
 # https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-disk-kvm.img
@@ -24,7 +24,14 @@ variable cloud_init_data {default=""}
 variable network_wait_dhcp_lease {default=false}
 
 variable "network_fixed_ip_list" {
-  description = "Debe recibir una lista de ips validas el minimo es cero para dinamicas( network_fixed_ip_list = []). network_fixed_ip_list = [\"10.30.188.15\",\"10.30.188.16\",\"10.30.188.17\"]"
+  description = "CAution: No siempre funciona, el dhcp de qemu genera conflicto si la ip ya está asignada. Debe recibir una lista de ips validas el minimo es cero para dinamicas( network_fixed_ip_list = []). network_fixed_ip_list = [\"10.30.188.15\",\"10.30.188.16\",\"10.30.188.17\"]"
   type        = list
   default     =  []
+}
+
+
+variable "os_disk_size_mb" {
+  description = "Debe recibir el tamano del disco expresado en megabytes, por default 10*1024 megabytes(10gb)"
+  type        = number
+  default     =  10*1024
 }

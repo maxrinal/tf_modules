@@ -1,6 +1,6 @@
 # Uso del modulo tf_complex_instance_kvm
 
-``` terraform
+``` yaml
 module "node" {
   source = "../tf_complex_instance_kvm"
 
@@ -25,5 +25,12 @@ module "node" {
   # disk_list             = { "docker" : 1024, "data" : 512 }
   # network_name_list     = ["default", "default"]
   network_name_list     = ["default"]
+  # network_fixed_ip_list = []]
+  # network_fixed_ip_list = ["192.168.122.11"]
+  # network_fixed_ip_list = ["192.168.122.11", "192.168.122.11"]
+
+  # Debe recibir el tamano del disco expresado en megabytes, por default 10*1024 megabytes(10gb)
+  os_disk_size_mb = 10*1024
+
 }
 ```

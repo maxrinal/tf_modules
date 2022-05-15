@@ -52,7 +52,7 @@ resource "openstack_compute_volume_attach_v2" "all-volume-attach" {
   volume_id   = each.value.id
 
   vendor_options {
-    ignore_volume_confirmation = true
+    ignore_volume_confirmation = var.ignore_volume_confirmation
   }
 }
 

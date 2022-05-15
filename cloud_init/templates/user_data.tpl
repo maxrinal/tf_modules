@@ -3,7 +3,7 @@
 timezone: "America/Argentina/Buenos_Aires"
 hostname: ${host_name}
 fqdn: "${host_name}.${search_domain}"
-manage_etc_hosts: false
+manage_etc_hosts: true
 enable_dns: true
 users:
   - name: ${user_name}

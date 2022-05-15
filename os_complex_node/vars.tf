@@ -51,4 +51,11 @@ variable "default_ssh_user" {
 }
 
 
+variable "ignore_volume_confirmation" {
+  description = "Recibe un bool true/false indicando si esperar a que se complete el attach del volume o no. En la experiencia se requiere true para openstack icehouse "
+  type        = bool
+  default     = true
+}
+
+
 
